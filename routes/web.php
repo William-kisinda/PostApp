@@ -24,3 +24,7 @@ Route::get('/posts', function () {
 Route::get('/h', function () {
     return 'Hello world';
 });
+
+Route::get('/b', function () {
+    return 'Boom Boom';
+});
