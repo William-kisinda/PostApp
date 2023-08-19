@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/posts', function () {
     return view('posts.index');
 });
+
+Route::get('/h', function () {
+    return 'Hello world';
+});
