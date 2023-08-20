@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,7 @@ Route::get('/posts', function () {
     return view('posts.index');
 });
 
-Route::get('/h', function () {
-    return 'Hello world';
-});
+Route::get('/register', [AuthController::class, 'register'])->name('register');
 
 Route::get('/b', function () {
     return 'Boom Boom';
