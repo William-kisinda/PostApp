@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
-<<<<<<< HEAD
     <title>User Authentication</title>
     <style>
         body {
@@ -57,6 +56,5 @@
     </form>
 </div>
 </body>
-=======
->>>>>>> 746a9f7ff5ddcaa6ff7dd7d10d8127912cb5f77a
+</body>
 </html>
