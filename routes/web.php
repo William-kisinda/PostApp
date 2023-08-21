@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
@@ -17,17 +18,11 @@ use App\Http\Controllers\Auth\LogoutController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/posts', function () {
-    return view('posts.index');
-});
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -41,3 +36,6 @@ Route::post('/login', [LoginController::class, 'save']);
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
+
+Route::post('/posts', [PostController::class, 'save']);

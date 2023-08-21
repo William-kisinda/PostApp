@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class PostController extends Controller
 {
     public function __construct() {
         $this->middleware(['auth']);
     }
 
     public function index() {
-        return view('dashboard');
+        return view('posts.index');
+    }
+
+    public function save(Request $request) {
+        dd('ok');
     }
 }
