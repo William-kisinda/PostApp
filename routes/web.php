@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +21,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+
 Route::get('/posts', function () {
     return view('posts.index');
 });
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 
-Route::get('/b', function () {
-    return 'Boom Boom';
-});
+Route::post('/register', [AuthController::class, 'add']);
+
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+
+Route::post('/login', [LoginController::class, 'save']);
+
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+
