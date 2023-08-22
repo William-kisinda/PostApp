@@ -8,13 +8,17 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function __construct() {
-        $this->middleware(['auth']);
+        $this->middleware(['auth'])->only(['save', 'destroy']);
     }
 
     public function index() {
         
-        $posts = Post::with(['user', 'likes'])->paginate(3); // Gets a collection of all posts. Paginate returns a paginator instance.
+        $posts = Post::latest()->with(['user', 'likes'])->paginate(3); // Gets a collection of all posts. Paginate returns a paginator instance.
         return view('posts.index', ['posts' => $posts]);
+    }
+
+    public function show(Post $post) {
+        return view('posts.show', ['post' => $post]);
     }
 
     public function save(Request $request) {
@@ -29,6 +33,8 @@ class PostController extends Controller
     }
     
     public function destroy(Post $post) {
+
+        $this->authorize('delete', $post);
 
         $post->delete();
 

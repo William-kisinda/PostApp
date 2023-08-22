@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Like;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -26,3 +27,5 @@ class Post extends Model
         return $this->hasMany(Like::class);
     }
 }
+
+//Its essential to create a policy that makes sure who does what with this post.

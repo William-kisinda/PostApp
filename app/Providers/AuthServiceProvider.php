@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        //
+        Post::class => PostPolicy::class,  //Here we tell laravel that this particular policy is assosciated with this post.
     ];
 
     /**
