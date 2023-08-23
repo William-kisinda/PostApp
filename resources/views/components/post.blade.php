@@ -9,7 +9,7 @@
             @csrf
             @method('DELETE')
             <button type="submit" class=" text-blue-500">Delete</button>
-        </form>
+        </form>     
     @endcan
     <div class="flex items-center">
         @auth
