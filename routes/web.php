@@ -43,3 +43,7 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 
 Route::post('/posts/{post}/likes', [PostLikeController::class, 'save'])->name('posts.likes');
 Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('posts.likes');
+
+Route::post('random/code', function() {
+    //hello random code.
+});
